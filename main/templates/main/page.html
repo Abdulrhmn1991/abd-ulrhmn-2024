@@ -1,0 +1,24 @@
+<!-- main/templates/main/page.html -->
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <section class="page-list">
+        <h2>صفحات {{ area }}</h2>
+        <div class="row">
+            {% for page in pages %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ page.image.url }}" class="card-img-top" alt="{{ page.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ page.title }}</h5>
+                            <p class="card-text">{{ page.description|truncatewords:20 }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://wa.me/{{ page.whatsapp_number }}" target="_blank" class="btn btn-success">المحادثة عبر واتساب</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

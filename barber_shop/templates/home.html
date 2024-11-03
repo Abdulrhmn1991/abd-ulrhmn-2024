@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <section class="daily-flyers">
+        {% if flyers %}
+            {% for flyer in flyers %}
+                <div class="flyer">
+                    <img src="{{ flyer.image.url }}" alt="منشور يومي">
+                    <p>{{ flyer.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>لا يوجد منشور يومي حالياً.</p>
+        {% endif %}
+    </section>
+{% endblock %}

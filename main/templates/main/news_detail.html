@@ -1,0 +1,11 @@
+<!-- main/templates/main/news_detail.html -->
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <section class="news-detail">
+        <img src="{{ flyer.image.url }}" alt="{{ flyer.description }}" class="img-fluid rounded mb-3">
+        <h2>{{ flyer.description|truncatewords:10 }}</h2>
+        <p>{{ flyer.description }}</p>
+        <a href="{% url 'main:home' %}" class="btn btn-primary mt-3">العودة إلى الصفحة الرئيسية</a>
+    </section>
+{% endblock %}

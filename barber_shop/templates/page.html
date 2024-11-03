@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <section class="page-detail">
+        <img src="{{ page.image.url }}" alt="{{ page.title }}">
+        <h2>{{ page.title }}</h2>
+        <p><strong>أوقات الدوام:</strong> {{ page.working_hours }}</p>
+        <p>{{ page.description }}</p>
+        <a href="https://wa.me/{{ page.whatsapp_number }}" target="_blank">
+            <button>المحادثة عبر واتساب</button>
+        </a>
+    </section>
+{% endblock %}

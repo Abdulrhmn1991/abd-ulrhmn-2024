@@ -1,0 +1,31 @@
+<!-- main/templates/main/home.html -->
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+
+    <section class="daily-flyers row">
+        {% if flyers %}
+            {% for flyer in flyers %}
+                <div class="col-md-4 mb-4">
+                    <div class="flyer card h-100">
+                        <img src="{{ flyer.image.url }}" class="card-img-top" alt="{{ flyer.description }}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{% url 'main:news_detail' flyer.id %}" class="text-decoration-none">
+                                    {{ flyer.description|truncatewords:10 }}
+                                </a>
+                            </h5>
+                            <p class="card-text">{{ flyer.description|truncatewords:30 }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">تم النشر في: {{ flyer.pub_date|date:"d/m/Y H:i" }}</small>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>لا توجد منشورات أخبار يومية حالياً.</p>
+        {% endif %}
+    </section>
+{% endblock %}
